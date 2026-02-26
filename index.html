@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yogapavithra · software developer</title>
+    <!-- Google Fonts Poppins + Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ===== GLOBAL STYLING ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --bg-color: #0a192f;
+        --second-bg-color: #112240;
+        --text-color: #e6f1ff;
+        --main-color: #d4a373;
+        --border-glow: rgba(212, 163, 115, 0.3);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(
+          145deg,
+          #0a192f 0%,
+          #0e1e33 50%,
+          #0b1b30 100%
+        );
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ===== HEADER ===== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        background: transparent;
+        transition: background 0.3s ease, box-shadow 0.3s;
+      }
+
+      header.sticky {
+        background: rgba(10, 25, 47, 0.9);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(212, 163, 115, 0.2);
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--main-color);
+        text-stroke: 1.5px var(--main-color);
+        transition: 0.2s;
+      }
+
+      .logo:hover {
+        -webkit-text-stroke: 1.5px #ffd966;
+      }
+
+      .navbar {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: 0.2s;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+      }
+
+      .navbar a:hover,
+      .navbar a.active {
+        color: var(--main-color);
+        border-bottom-color: var(--main-color);
+      }
+
+      #menu-icon {
+        font-size: 2.5rem;
+        color: var(--main-color);
+        cursor: pointer;
+        display: none;
+      }
+
+      /* ===== HOME SECTION ===== */
+      section {
+        min-height: 100vh;
+        padding: 8rem 5% 3rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .home {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .home-content {
+        flex: 1 1 450px;
+      }
+
+      .home-content h1 {
+        font-size: 3.8rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .home-content h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--main-color);
+        margin-bottom: 1.5rem;
+        -webkit-text-stroke: 0.5px #b88b5b;
+        animation: fadeIn 1s ease;
+      }
+
+      .home-content p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 1.2rem 0 2rem;
+        color: #ccd9f0;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 2.2rem;
+        background: var(--main-color);
+        color: #0a192f;
+        font-weight: 600;
+        border-radius: 40px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: 0.2s;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+      }
+
+      .btn:hover {
+        background: transparent;
+        color: var(--main-color);
+        border-color: var(--main-color);
+        transform: scale(1.02);
+      }
+
+      .home-img {
+        flex: 1 1 350px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .profile-circle {
+        width: 320px;
+        height: 320px;
+        border-radius: 50%;
+        border: 5px solid var(--main-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(212, 163, 115, 0.05);
+        box-shadow: 0 0 30px rgba(212, 163, 115, 0.2);
+        animation: slideInTop 1s ease, scaleUp 0.8s ease, fadeIn 1.2s;
+      }
+
+      .profile-circle i {
+        font-size: 10rem;
+        color: #e0c9a6;
+        filter: drop-shadow(0 0 8px #b48b54);
+      }
+
+      /* animations */
+      @keyframes slideInTop {
+        0% {
+          transform: translateY(-80px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes scaleUp {
+        0% {
+          transform: scale(0.9);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* ===== ABOUT SECTION ===== */
+      .about {
+        background: linear-gradient(145deg, #0b1d33, #10233e);
+        border-radius: 2rem 0 2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .heading {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+
+      .heading span {
+        color: var(--main-color);
+      }
+
+      .edu-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 2.5rem;
+        padding: 2.5rem 3rem;
+        max-width: 750px;
+        margin: 0 auto 2rem auto;
+        backdrop-filter: blur(5px);
+      }
+
+      .edu-card h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #ffe6c1;
+      }
+
+      .edu-card p {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+      }
+
+      .edu-card .cgpa {
+        background: var(--main-color);
+        color: #0a192f;
+        display: inline-block;
+        padding: 0.4rem 2rem;
+        border-radius: 40px;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      .about-description {
+        background: rgba(17, 34, 64, 0.6);
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 2rem;
+        padding: 1.8rem 2.2rem;
+        max-width: 750px;
+        margin: 1rem auto 2rem auto;
+        backdrop-filter: blur(5px);
+        text-align: left;
+        font-size: 1.05rem;
+        color: #d0e0ff;
+      }
+
+      .about-description p {
+        margin-bottom: 0.8rem;
+      }
+
+      .about-description i {
+        color: var(--main-color);
+        margin-right: 10px;
+        width: 24px;
+      }
+
+      .about-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2.2rem;
+        margin: 1.8rem 0 1.2rem;
+      }
+
+      .about-icons a {
+        color: var(--text-color);
+        font-size: 1.9rem;
+        transition: 0.2s;
+      }
+
+      .about-icons a:hover {
+        color: var(--main-color);
+        transform: translateY(-4px);
+      }
+
+      .resume-about-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+        border: 2px solid var(--main-color);
+        color: var(--main-color);
+        padding: 0.5rem 2rem;
+        border-radius: 40px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: 0.2s;
+        margin-top: 0.5rem;
+        font-size: 1rem;
+      }
+
+      .resume-about-btn:hover {
+        background: var(--main-color);
+        color: #0a192f;
+      }
+
+      /* ===== SKILLS SECTION (icon grid) ===== */
+      .skills {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.8rem;
+        margin-top: 2rem;
+      }
+
+      .skill-card {
+        background: rgba(17, 34, 64, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 2rem;
+        padding: 1.8rem 1rem 1.4rem;
+        text-align: center;
+        transition: 0.25s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--main-color);
+        box-shadow: 0 10px 22px -8px #d4a37380;
+      }
+
+      .skill-card i {
+        font-size: 2.8rem;
+        color: var(--main-color);
+        filter: drop-shadow(0 4px 6px #d4a37340);
+      }
+
+      .skill-card span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-color);
+      }
+
+      .skill-sub {
+        font-size: 0.85rem;
+        color: #b6c9f0;
+        opacity: 0.9;
+      }
+
+      .skill-category {
+        grid-column: 1 / -1;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--main-color);
+        margin: 1rem 0 0.2rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px dashed #415a77;
+        padding-bottom: 0.3rem;
+      }
+
+      /* ===== PROJECTS ===== */
+      .projects {
+        flex-direction: column;
+      }
+
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .project-card {
+        background: rgba(17, 34, 64, 0.7);
+        backdrop-filter: blur(6px);
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+        border: 1px solid rgba(212, 163, 115, 0.25);
+        transition: 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--main-color);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-card i {
+        font-size: 2.5rem;
+        color: var(--main-color);
+        margin-bottom: 1rem;
+      }
+
+      .project-card h4 {
+        font-size: 1.7rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .project-card p {
+        color: #cddcf5;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* ===== CERTIFICATE & INTERNSHIP (clickable cards) ===== */
+      .certificate {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cert-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 1.5rem 0 2rem;
+        width: 100%;
+      }
+
+      /* clickable card style */
+      .cert-card,
+      .intern-card {
+        background: #112b44;
+        border-radius: 2rem;
+        border: 1px solid var(--main-color);
+        padding: 1.2rem 1.8rem;
+        flex: 1 1 280px;
+        backdrop-filter: blur(4px);
+        transition: 0.2s;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        cursor: pointer;
+      }
+
+      .cert-card:hover,
+      .intern-card:hover {
+        transform: translateY(-5px);
+        border-color: #f5c594;
+        box-shadow: 0 8px 18px #00000060;
+      }
+
+      .cert-header,
+      .intern-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: var(--main-color);
+        font-size: 1.1rem;
+      }
+
+      .cert-header i,
+      .intern-header i {
+        font-size: 1.5rem;
+      }
+
+      .cert-desc,
+      .intern-desc {
+        font-size: 0.9rem;
+        color: #cddcf5;
+        line-height: 1.5;
+        padding-left: 0.3rem;
+      }
+
+      .intern-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+        width: 100%;
+      }
+
+      /* ===== CONTACT SECTION (simplified + icons) ===== */
+      .contact {
+        flex-direction: column;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 100%;
+        max-width: 700px;
+        margin: 2rem auto 0;
+        justify-content: center;
+      }
+
+      .contact-info {
+        flex: 1 1 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1.5rem;
+        background: rgba(17, 34, 64, 0.6);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 2rem;
+        padding: 2rem 1.5rem;
+        align-items: center;
+        text-align: center;
+      }
+
+      .contact-info a {
+        color: var(--text-color);
+        font-size: 2.5rem;
+        transition: 0.2s;
+        margin: 0 0.8rem;
+      }
+
+      .contact-info a:hover {
+        color: var(--main-color);
+        transform: translateY(-4px);
+      }
+
+      .contact-info p {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        color: #cddcf5;
+      }
+
+      .contact-form {
+        flex: 1 1 350px;
+        background: rgba(17, 34, 64, 0.6);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(212, 163, 115, 0.2);
+        border-radius: 2rem;
+        padding: 2rem 1.8rem;
+      }
+
+      .input-box {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .input-box input {
+        width: 100%;
+        padding: 1rem 1.4rem;
+        background: #1f344d;
+        border: 1px solid #374e6b;
+        border-radius: 50px;
+        color: white;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        transition: 0.2s;
+      }
+
+      .input-box input:focus {
+        border-color: var(--main-color);
+        box-shadow: 0 0 12px var(--border-glow);
+        outline: none;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 1rem 0 1.8rem;
+      }
+
+      .checkbox-group input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--main-color);
+      }
+
+      .contact-form .btn {
+        width: 100%;
+        cursor: pointer;
+        border: none;
+        background: var(--main-color);
+        color: #0f1f33;
+        font-weight: 600;
+      }
+
+      /* ===== FOOTER WITH CHATBOT ===== */
+      footer {
+        background: #07111f;
+        color: #acbfe0;
+        text-align: center;
+        padding: 2rem 0 1.5rem;
+        border-top: 1px solid #2f4468;
+        position: relative;
+      }
+
+      .footer-text p {
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .scroll-top {
+        position: absolute;
+        right: 4%;
+        bottom: 30px;
+        background: #b58b54;
+        color: #0e1b2b;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        transition: 0.2s;
+        text-decoration: none;
+      }
+
+      .scroll-top:hover {
+        background: #e6b87b;
+        transform: translateY(-5px);
+      }
+
+      /* ---------- floating chatbot button & window ---------- */
+      .chatbot-toggle {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: var(--main-color);
+        color: #0f1f33;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(212, 163, 115, 0.5);
+        border: none;
+        z-index: 999;
+        transition: 0.2s;
+      }
+
+      .chatbot-toggle:hover {
+        transform: scale(1.1);
+        background: #f5c594;
+      }
+
+      .chatbot-window {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 350px;
+        height: 480px;
+        background: #11223b;
+        border: 2px solid var(--main-color);
+        border-radius: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 10px 30px #00000080;
+        z-index: 1000;
+        transition: 0.3s ease;
+        transform: scale(0);
+        opacity: 0;
+        transform-origin: bottom right;
+      }
+
+      .chatbot-window.open {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      .chat-header {
+        background: var(--main-color);
+        color: #0a192f;
+        padding: 1rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chat-header span {
+        font-size: 1.1rem;
+      }
+
+      .chat-header i {
+        cursor: pointer;
+        font-size: 1.3rem;
+      }
+
+      .chat-messages {
+        flex: 1;
+        padding: 1rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: #0e1e30;
+      }
+
+      .bot-message,
+      .user-message {
+        padding: 0.6rem 1rem;
+        border-radius: 20px;
+        max-width: 80%;
+        word-wrap: break-word;
+        font-size: 0.9rem;
+      }
+
+      .bot-message {
+        background: #1b3b5c;
+        align-self: flex-start;
+        border-bottom-left-radius: 5px;
+      }
+
+      .user-message {
+        background: var(--main-color);
+        color: #0a192f;
+        align-self: flex-end;
+        border-bottom-right-radius: 5px;
+      }
+
+      .chat-input-area {
+        display: flex;
+        padding: 0.8rem;
+        background: #0f1d31;
+        border-top: 1px solid #2b4a6e;
+      }
+
+      .chat-input-area input {
+        flex: 1;
+        padding: 0.6rem 1rem;
+        border-radius: 40px;
+        border: 1px solid #3e6188;
+        background: #1e3755;
+        color: white;
+        outline: none;
+      }
+
+      .chat-input-area button {
+        background: var(--main-color);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        margin-left: 8px;
+        color: #0f1f33;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+
+      /* responsiveness */
+      @media (max-width: 768px) {
+        #menu-icon {
+          display: block;
+        }
+        .navbar {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(10, 25, 47, 0.95);
+          backdrop-filter: blur(15px);
+          flex-direction: column;
+          align-items: center;
+          padding: 1.5rem 0;
+          gap: 1.2rem;
+          border-bottom: 1px solid #3d587b;
+          display: none;
+        }
+        .navbar.active {
+          display: flex;
+        }
+        .home {
+          justify-content: center;
+          text-align: center;
+        }
+        .home-content p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .chatbot-window {
+          width: 300px;
+          right: 15px;
+          bottom: 80px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .heading {
+          font-size: 2.5rem;
+        }
+        .profile-circle {
+          width: 250px;
+          height: 250px;
+        }
+        .profile-circle i {
+          font-size: 7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <div class="logo">Yogaa</div>
+      <i class="fas fa-bars" id="menu-icon"></i>
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificate">Cert & Intern</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HOME section -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h1>YOGAPAVITHRA M</h1>
+        <h3>Software Developer</h3>
+        <p>
+          <br />
+          To obtain a Software Developer position in a progressive organization
+          where I can utilize my technical skills, problem-solving abilities,
+          and passion for software development to create efficient and
+          innovative solutions while contributing to the company’s growth and
+          enhancing my professional development.
+        </p>
+      </div>
+      <div class="home-img">
+        <div class="profile-circle">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT section -->
+    <section class="about" id="about">
+      <h2 class="heading">About <span>Me</span></h2>
+      <div class="edu-card">
+        <h3>Government College of Engineering, Salem-11</h3>
+        <p>(2022 – 2026)</p>
+        <p><strong>B.E Computer Science and Engineering</strong></p>
+        <span class="cgpa">CGPA: 8.80 / 10</span>
+      </div>
+
+      <div class="about-description">
+        <p>
+          <i class="fas fa-quote-left"></i> I'm a passionate software developer
+          with a strong foundation in Java, Data Structures, and web
+          technologies. I love building clean, responsive applications and
+          solving real-world problems through code. Always eager to learn and
+          collaborate on impactful projects.
+        </p>
+      </div>
+
+      <div class="about-icons">
+        <a
+          href="https://www.linkedin.com/in/yogapavithra-manikandan-646b24266?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank"
+          aria-label="LinkedIn"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/yogapavithra"
+          target="_blank"
+          aria-label="GitHub"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="mailto:pavithra210605@gmail.com" aria-label="Email"
+          ><i class="fas fa-envelope"></i
+        ></a>
+      </div>
+
+      <a
+        href="C:/Users/ELCOT/Downloads/YOGA RESUME 2.pdf"
+        class="resume-about-btn"
+        ><i class="fas fa-file-pdf"></i> Resume</a
+      >
+    </section>
+
+    <!-- SKILLS section -->
+    <section class="skills" id="skills">
+      <h2 class="heading">Technical & <span>Soft Skills</span></h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <i class="fas fa-code"></i> Programming Languages
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-c"></i> <span>C</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-java"></i> <span>Java</span>
+          <div class="skill-sub">Core</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-sitemap"></i> <span>Data Structures</span>
+          <div class="skill-sub">Java</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-desktop"></i> <span>Operating System</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-robot"></i> <span>Machine Learning</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database"></i> <span>MySQL</span>
+          <div class="skill-sub">Intermediate</div>
+        </div>
+
+        <div class="skill-category">
+          <i class="fas fa-globe"></i> Web Development
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-html5"></i> <span>HTML & CSS</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-js"></i> <span>JavaScript</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-bootstrap"></i> <span>Bootstrap</span>
+          <div class="skill-sub">Intermediate</div>
+        </div>
+
+        <div class="skill-category">
+          <i class="fas fa-tools"></i> Tools / Familiar
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-file-alt"></i> <span>MS Office</span>
+          <div class="skill-sub">Advanced</div>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-git-alt"></i> <span>Git & GitHub</span>
+          <div class="skill-sub">Basics</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-code"></i> <span>VS Code</span>
+          <div class="skill-sub">Daily use</div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-paint-brush"></i> <span>Canva</span>
+          <div class="skill-sub">Design</div>
+        </div>
+
+        <div class="skill-category">
+          <i class="fas fa-users"></i> Soft Skills
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-brain"></i> <span>Analytical Thinking</span>
+          <div class="skill-sub"></div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-comments"></i> <span>Communication</span>
+          <div class="skill-sub"></div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-handshake"></i> <span>Team Collaboration</span>
+          <div class="skill-sub"></div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-sync-alt"></i> <span>Adaptability</span>
+          <div class="skill-sub"></div>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-clock"></i> <span>Time Management</span>
+          <div class="skill-sub"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS section -->
+    <section class="projects" id="projects">
+      <h2 class="heading">My <span>Projects</span></h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <i class="fas fa-file-alt"></i>
+          <h4>Automated Resume Screening</h4>
+          <p>
+            NLP-based system using Python. Extracts skills, education,
+            experience. Resume scoring, career suggestions, HR dashboard.
+          </p>
+          <p>✔ Improves recruitment efficiency & reduces bias</p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-hotel"></i>
+          <h4>Hotel Management System</h4>
+          <p>
+            Web-based: room booking, check-in/out, customer management, billing.
+            Reduces manual work, improves accuracy. User-friendly.
+          </p>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-traffic-light"></i>
+          <h4>Traffic management system</h4>
+          <p>
+            Vision-based accident detection using optical flow & SVM. Analyzes
+            traffic video to detect collisions and enable faster emergency
+            response.
+          </p>
+          <p>✔ Violent Flow features + SVM classification</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATE & INTERNSHIP (clickable cards - open GitHub) -->
+    <section class="certificate" id="certificate">
+      <h2 class="heading">Certificates & <span>Internship</span></h2>
+
+      <!-- certificates as clickable cards -->
+      <div class="cert-grid">
+        <a href="https://github.com" target="_blank" class="cert-card">
+          <div class="cert-header">
+            <i class="fas fa-certificate"></i> Web Dev (HTML/CSS) – Novi
+            Technologies
+          </div>
+          <div class="cert-desc">
+            Completed a Web Development Internship where I designed and
+            developed responsive web pages using HTML, CSS, and JavaScript.
+            During the internship, I gained hands-on experience in front-end
+            development, website functionality, debugging, and working on
+            real-time projects to enhance my technical and problem-solving
+            skills.
+          </div>
+        </a>
+
+        <a href="https://github.com" target="_blank" class="cert-card">
+          <div class="cert-header">
+            <i class="fab fa-java"></i> Java – Infosys Springboot
+          </div>
+          <div class="cert-desc">
+            Completed a Java course where I learned core Java concepts including
+            OOP, data types, loops, arrays, and exception handling. The course
+            helped me build a strong foundation in programming, improve logical
+            thinking, and develop simple applications using Java.
+          </div>
+        </a>
+
+        <a href="https://github.com" target="_blank" class="cert-card">
+          <div class="cert-header">
+            <i class="fas fa-c"></i> C Course – Cybernaut Organization
+          </div>
+          <div class="cert-desc">
+            Completed a C programming course where I learned fundamental
+            concepts such as data types, control structures, functions, arrays,
+            pointers, and file handling. The course helped me build strong
+            programming basics, improve logical thinking, and develop simple
+            programs efficiently.
+          </div>
+        </a>
+      </div>
+
+      <h3
+        style="
+          color: var(--main-color);
+          margin-top: 1.5rem;
+          font-size: 1.5rem;
+          width: 100%;
+        "
+      >
+        Internship
+      </h3>
+
+      <div class="intern-box">
+        <a href="https://github.com" target="_blank" class="intern-card">
+          <div class="intern-header">
+            <i class="fas fa-laptop"></i> Codsoft – Web Development (1 Month,
+            Online)
+          </div>
+          <div class="intern-desc">
+            Completed a Web Development Internship at Codsoft where I built
+            responsive web pages using HTML, CSS, and JavaScript. Gained
+            practical experience in front-end development and real-time project
+            implementation.
+          </div>
+        </a>
+
+        <a href="https://github.com" target="_blank" class="intern-card">
+          <div class="intern-header">
+            <i class="fas fa-building"></i> Ideal Formatic Group – Web Dev (1
+            Month, Offline)
+          </div>
+          <div class="intern-desc">
+            Completed a Web Development Internship at Ideal Formatic where I
+            developed responsive web pages using HTML, CSS, and JavaScript.
+            Gained practical experience in front-end development and worked on
+            real-time website projects.
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT section (with icons + form) -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Get in <span>Touch</span></h2>
+      <div class="contact-container">
+        <!-- left side: social icons -->
+        <div class="contact-info">
+          <div>
+            <a
+              href="https://www.linkedin.com/in/yogapavithra-manikandan-646b24266?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://github.com/yogapavithra" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="mailto:pavithra210605@gmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+          <p>Let's connect on social media or send a message!</p>
+        </div>
+
+        <!-- right side: simplified form -->
+        <div class="contact-form">
+          <form
+            action="#"
+            onsubmit="alert('demo: message sent'); return false;"
+          >
+            <div class="input-box">
+              <input type="text" placeholder="Full Name" required />
+            </div>
+            <div class="input-box">
+              <input type="email" placeholder="Email Address" required />
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="subscribe" checked />
+              <label for="subscribe">I'd like to receive updates (demo)</label>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-text">
+        <p>© Yogapavithra M | All Rights Reserved</p>
+      </div>
+      <a href="#home" class="scroll-top"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+    <!-- floating chatbot toggle button -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+      <i class="fas fa-comment-dots"></i>
+    </div>
+
+    <!-- chatbot window -->
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chat-header">
+        <span
+          ><i class="fas fa-robot" style="margin-right: 8px"></i> Resume
+          AI</span
+        >
+        <i class="fas fa-times" id="closeChat"></i>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bot-message">
+          👋 Hi! I'm Yoga's AI assistant. You can ask me about her resume,
+          projects, skills, or anything general!
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Ask me anything..." />
+        <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script>
+      // sticky header & mobile menu
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("header")
+          .classList.toggle("sticky", window.scrollY > 50);
+      });
+      const menuIcon = document.getElementById("menu-icon");
+      const navbar = document.querySelector(".navbar");
+      menuIcon.addEventListener("click", () =>
+        navbar.classList.toggle("active")
+      );
+      document.querySelectorAll(".navbar a").forEach((link) => {
+        link.addEventListener("click", () => navbar.classList.remove("active"));
+      });
+
+      // active link highlight
+      const sections = document.querySelectorAll("section");
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          if (scrollY >= sectionTop) current = section.getAttribute("id");
+        });
+        document.querySelectorAll(".navbar a").forEach((a) => {
+          a.classList.remove("active");
+          if (a.getAttribute("href") === `#${current}`)
+            a.classList.add("active");
+        });
+      });
+
+      // ---------- chatbot logic ----------
+      const toggleBtn = document.getElementById("chatbotToggle");
+      const chatWindow = document.getElementById("chatbotWindow");
+      const closeChat = document.getElementById("closeChat");
+      const chatMessages = document.getElementById("chatMessages");
+      const chatInput = document.getElementById("chatInput");
+      const sendBtn = document.getElementById("sendChatBtn");
+
+      toggleBtn.addEventListener("click", () => {
+        chatWindow.classList.toggle("open");
+      });
+      closeChat.addEventListener("click", () => {
+        chatWindow.classList.remove("open");
+      });
+
+      function getBotReply(userMsg) {
+        const msg = userMsg.toLowerCase();
+        if (
+          msg.includes("resume") ||
+          msg.includes("cv") ||
+          msg.includes("background")
+        ) {
+          return "Yogapavithra M is a Software Developer student at Government College of Engineering, Salem (CGPA 8.80). Skilled in Java, C, Data Structures, MySQL, HTML/CSS, JavaScript, and Bootstrap. Soft skills: analytical thinking, communication, teamwork.";
+        } else if (msg.includes("project") || msg.includes("projects")) {
+          return "She has built: 1) Automated Resume Screening (NLP, Python), 2) Hotel Management System (web-based), 3) Traffic accident detection (optical flow + SVM). Would you like details on any?";
+        } else if (msg.includes("automated resume")) {
+          return "Automated Resume Screening uses NLP to extract skills, education, experience from resumes. It provides scoring, career suggestions, and an HR dashboard. Built with Python.";
+        } else if (msg.includes("hotel")) {
+          return "Hotel Management System is a web app for room booking, check-in/out, customer management, and billing. It reduces manual work and improves accuracy.";
+        } else if (msg.includes("traffic") || msg.includes("accident")) {
+          return "Traffic Management System uses vision-based optical flow and SVM to detect accidents from video, enabling faster emergency response.";
+        } else if (msg.includes("skill") || msg.includes("technologies")) {
+          return "Technical skills: Java, C, Data Structures, MySQL, HTML/CSS, JavaScript, Bootstrap, Git, VS Code, Canva. Soft skills: Analytical Thinking, Communication, Team Collaboration, Adaptability, Time Management.";
+        } else if (msg.includes("internship") || msg.includes("intern")) {
+          return "Internships: Codsoft (Web Dev, 1 month online) and Ideal Formatic Group (Web Dev, 1 month offline).";
+        } else if (
+          msg.includes("certificate") ||
+          msg.includes("certification")
+        ) {
+          return "Certificates: Web Dev (Novi Technologies), Java (Infosys Springboot), C Course (Cybernaut Organization).";
+        } else if (msg.includes("hello") || msg.includes("hi")) {
+          return "Hello! Ask me about Yoga's resume, projects, skills, or anything else!";
+        } else {
+          return "I'm here to help with info about Yoga's profile. You can ask about resume, projects, skills, internships, or certificates.";
+        }
+      }
+
+      function addUserMessage(text) {
+        const div = document.createElement("div");
+        div.className = "user-message";
+        div.innerText = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function addBotMessage(text) {
+        const div = document.createElement("div");
+        div.className = "bot-message";
+        div.innerText = text;
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      sendBtn.addEventListener("click", () => {
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        addUserMessage(msg);
+        chatInput.value = "";
+        setTimeout(() => {
+          const reply = getBotReply(msg);
+          addBotMessage(reply);
+        }, 400);
+      });
+
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendBtn.click();
+      });
+    </script>
+  </body>
+</html>
